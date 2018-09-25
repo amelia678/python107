@@ -1,14 +1,17 @@
-#with user input, print dictionary containing tally of how many times each letter was used
+# with user input, print dictionary containing tally of how many times each word in sentence
+# was used
 
-#user input
+sentence = input("Please enter a sentence:").lower()
+ 
+def histogram(str):
+    counts = {}
+    words = str.split()
 
-word = input("Please enter a word:").lower()
-#create function
-def histogram(txt):
-    letter_dict = {}
-    i = 0
-    for x in set(txt):
-        letter_dict[x] = txt.count(x)
-    return letter_dict
+    for word in words:
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+    return counts            
 
-print(histogram(word))
+print(histogram(sentence))
